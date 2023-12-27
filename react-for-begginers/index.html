@@ -1,8 +1,44 @@
 <!DOCTYPE html>
 <html lang="ko">
 <body>
+  
+  <div id="root">
+    <!-- 생성한 React 엘리먼트를 ReactDom을 통해 렌더링할 위치 -->
+  </div>
+
   <!-- React 임포트 -->
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"> /* react */ </script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js">/* react-dom */ </script>
+
+  <!-- React 스크립트 구현 -->
+  <script>
+    const root = document.getElementById("root")
+
+    let count = 0;
+
+    /**
+     * ReactJS로 h3 Element생성
+     * (React는 react.producntion.min.js CDN으로 부터 사용 가능하다.)
+     * 첫번째 arg: html의 dom element이름
+     * 두번째 arg: dom element에 적용할 property 객체 (id, class, css, onclick 등)
+     * 세번째 arg: 내용 - 텍스트노드 혹은 생성한 React element안에 들어갈 dom node (엘리먼트) 객체
+     */
+    const h3 = React.createElement(
+        "h3", 
+        { 
+          id: "sexy-span",
+          style: { color: "red" }
+        },
+        `Total clicks: ${count} `
+      );
+    /**
+     * ReactDOM을 통해 생성한 span React 엘리먼트를 root 엘리먼트에 렌더링 한다. 
+     * (ReactDOM는 react-dom.production.min.js CDN으로부터 사용 가능하다.)
+     * 첫번째 arg: React를 통해 생성한 React Element
+     * 두번째 arg: 생성한 엘리먼트를 렌더링 할 엘리먼트
+     */ 
+    ReactDOM.render(h3, root) 
+
+  </script>
 </body>
 </html>
