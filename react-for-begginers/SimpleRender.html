@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<body>
+  
+  <div id="root">
+    <!-- 생성한 React 엘리먼트를 ReactDom을 통해 렌더링할 위치 -->
+  </div>
+
+  <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"> /* react */ </script>
+  <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js">/* react-dom */ </script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"> /* https://babeljs.io/docs/babel-standalone */ </script>
+  
+  <!-- JSX 구현 -->
+  <script type="text/babel">
+    const root = document.getElementById("root")
+
+    let counter = 0;
+    function countUp() {
+      counter+=1
+      render();
+    }
+    function render() {
+      ReactDOM.render(<Container/>, root) 
+    }
+  
+    /* 화살표 함수 중괄호 시 {return (필수!) } */
+    const Container = () => {
+      return(
+        <div>
+          <h3>Total clicks: {counter}</h3>
+          <button onClick={countUp}>Click me</button>
+        </div>
+      )
+    }
+    render();
+  </script>
+</body>
+</html>
