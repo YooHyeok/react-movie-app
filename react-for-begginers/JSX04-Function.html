@@ -34,7 +34,10 @@
     /* 화살표 함수 {생략} 한줄코드 return 생략 가능 ( 중괄호시 {return 필수}) */
     const Button = () => <button style={{backgroundColor:"tomato"}} onClick={()=>{console.log("im Clicked!")}}>Click me</button>
 
-    /* 화살표 함수 중괄호 시 {return (필수!) } */
+    /**
+     * 화살표 함수 중괄호 시 {return (필수!) } / 중괄호 생략시 (로 묶어주면된다.)
+     * const Container = () => (<div><Title/><SubTitle/><Button/></div>)
+     */ 
     const Container = () => {
       return(
         <div>
