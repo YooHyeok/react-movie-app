@@ -14,26 +14,100 @@
   <script type="text/babel">
     const root = document.getElementById("root")
 
+    const ver1 = (
+      <div>
+        <h3 id="title" onMouseEnter={()=>{console.log("mouse Enter!")}}>
+          Hello I'm a title
+        </h3>
+        <button style={{backgroundColor:"tomato"}} onClick={()=>{console.log("im Clicked!")}}>Click me</button>
+      </div>
+    )
+    ReactDOM.render(ver1, root) 
+
+    /* 변수에 담아서 처리해본다. */
     const Title = (
       <h3 id="title" onMouseEnter={()=>{console.log("mouse Enter!")}}>
       Hello I'm a title
       </h3>
       )
     const Button = <button style={{backgroundColor:"tomato"}} onClick={()=>{console.log("im Clicked!")}}>Click me</button>
-    const container = (
-      /* <div>
+    const ver2 = (
+      <div>
         {Title}
         {Button}
-      </div> */
+      </div>)
+      ReactDOM.render(ver2, root) 
+
+
+    
+    /* 함수형 컴포넌트화 */
+    function TitleF() { //함수 선언문
+      return(
+        <h3 id="title" onMouseEnter={()=>{console.log("mouse Enter!")}}>
+          Hello I'm a title
+        </h3>
+        )
+    }
+    const SubTitleF = function() { //함수 표현식
+      return(
+        <h5 id="title" onMouseEnter={()=>{console.log("mouse Enter!")}}>
+          Hello I'm a SubTitle
+        </h5>
+        )
+    }
+    /* 화살표 함수 {생략} 한줄코드 return 생략 가능 ( 중괄호시 {return 필수}) */
+    const ButtonF = () => <button style={{backgroundColor:"tomato"}} onClick={()=>{console.log("im Clicked!")}}>Click me</button>
+    const ver3 = (
+      <div>
+        <TitleF/>
+        <SubTitleF/>
+        <ButtonF/>
+      </div>
+    )
+    ReactDOM.render(ver3, root) 
+
+    /* 함수형 컴포넌트화 */
+    class TitleC extends React.Component { //함수 선언문
+      render() {
+
+        return(
+          <h3 id="title" onMouseEnter={()=>{console.log("mouse Enter!")}}>
+          Hello I'm a title
+          </h3>
+          )
+      }
+    }
+    class SubTitleC extends React.Component { //함수 표현식
+      render() {
+
+        return(
+          <h5 id="title" onMouseEnter={()=>{console.log("mouse Enter!")}}>
+            Hello I'm a SubTitle
+          </h5>
+          )
+        }
+    }
+    /* 화살표 함수 {생략} 한줄코드 return 생략 가능 ( 중괄호시 {return 필수}) */
+    class ButtonC extends React.Component { //함수 표현식
+      render() {
+        return(
+          <button style={{backgroundColor:"tomato"}} onClick={()=>{console.log("im Clicked!")}}>Click me</button>
+        )
+      }
+    }
+    class VerC extends React.Component { //함수 표현식
+      render() {
+        return(
           <div>
-            <h3 id="title" onMouseEnter={()=>{console.log("mouse Enter!")}}>
-              Hello I'm a title
-            </h3>
-            <button style={{backgroundColor:"tomato"}} onClick={()=>{console.log("im Clicked!")}}>Click me</button>
+            <TitleC/>
+            <SubTitleC/>
+            <ButtonC/>
           </div>
         
-      )
-    ReactDOM.render(container, root) 
+        )
+      }
+    }
+    ReactDOM.render(<VerC/>, root) 
 
   </script>
 </body>
