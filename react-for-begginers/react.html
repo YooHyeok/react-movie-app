@@ -67,6 +67,21 @@
      */ 
     ReactDOM.render(Container, root) 
 
+
+    /* function Container() {
+      console.log("렌더링")
+      return React.createElement("div", null, 
+      React.createElement("h3", null, "Total clicks: ", count), 
+      React.createElement("button", {
+        onClick: () =>{
+          count += 1;
+          console.log(count);
+          ReactDOM.render(React.createElement(Container, null), root);
+        }
+      }, "Click me"));
+    };
+    ReactDOM.render( React.createElement(Container, null), root); */
+
   </script>
 </body>
 </html>
