@@ -14,8 +14,8 @@
   <script type="text/babel">
     const root = document.getElementById("root")
 
-    /* 함수형 컴포넌트화 */
-    class Title extends React.Component { //함수 선언문
+    /* 클래스형 컴포넌트화 */
+    class Title extends React.Component {
       render() {
 
         return(
@@ -25,7 +25,7 @@
           )
       }
     }
-    class SubTitle extends React.Component { //함수 표현식
+    class SubTitle extends React.Component {
       render() {
 
         return(
@@ -35,15 +35,14 @@
           )
         }
     }
-    /* 화살표 함수 {생략} 한줄코드 return 생략 가능 ( 중괄호시 {return 필수}) */
-    class Button extends React.Component { //함수 표현식
+    class Button extends React.Component {
       render() {
         return(
           <button style={{backgroundColor:"tomato"}} onClick={()=>{console.log("im Clicked!")}}>Click me</button>
         )
       }
     }
-    class Container extends React.Component { //함수 표현식
+    class Container extends React.Component {
       render() {
         return(
           <div>
