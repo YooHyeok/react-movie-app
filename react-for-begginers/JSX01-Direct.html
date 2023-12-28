@@ -15,7 +15,7 @@
     const root = document.getElementById("root")
 
     /* 한번에 직접 렌더링 */
-    const container = (
+    const Container = (
       <div>
         <h3 id="title" onMouseEnter={()=>{console.log("mouse Enter!")}}>
           Hello I'm a title
@@ -23,7 +23,7 @@
         <button style={{backgroundColor:"tomato"}} onClick={()=>{console.log("im Clicked!")}}>Click me</button>
       </div>
     )
-    ReactDOM.render(container, root) 
+    ReactDOM.render(Container, root) 
   </script>
 </body>
 </html>

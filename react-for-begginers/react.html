@@ -24,7 +24,7 @@
      * 두번째 arg: dom element에 적용할 property 객체 (id, class, css, onclick 등)
      * 세번째 arg: 내용 - 텍스트노드 혹은 생성한 React element안에 들어갈 dom node (엘리먼트) 객체
      */
-    const h3 = React.createElement(
+    const H3 = React.createElement(
         "h3", 
         { 
           id: "sexy-span",
@@ -36,14 +36,14 @@
      * ReactJS에서는 property에 eventListener를 등록한다.
      * 모든 이벤트명 앞에 on을 붙히고 이벤트명의 첫글자를 대문자로 하는 카멜케이스방식으로 작성한다.
      */
-    const btn = React.createElement(
+    const Button = React.createElement(
         "button", 
         {
           onClick: () => { // dom에 click 이벤트 리스너 등록 
             count += 1
 
             /* 업데이트 할 엘리먼트 재생성 */
-            const h3 = React.createElement(
+            const H3 = React.createElement(
               "h3",
               {
                 id: "sexy-span",
@@ -52,20 +52,20 @@
               `Total clicks: ${count} `
             );
             /* 재 랜더링 */
-            ReactDOM.render(React.createElement("div", null, [h3, btn]), root);
+            ReactDOM.render(React.createElement("div", null, [H3, Button]), root);
         
           }
         }, 
         "Click me"
       )
-    const container = React.createElement("div", null, [h3, btn]) // span, btn 두가지 컴포넌트를 가지는 하나의 div 컴포넌트 생성
+    const Container = React.createElement("div", null, [H3, Button]) // span, btn 두가지 컴포넌트를 가지는 하나의 div 컴포넌트 생성
     /**
      * ReactDOM을 통해 생성한 span React 엘리먼트를 root 엘리먼트에 렌더링 한다. 
      * (ReactDOM는 react-dom.production.min.js CDN으로부터 사용 가능하다.)
      * 첫번째 arg: React를 통해 생성한 React Element
      * 두번째 arg: 생성한 엘리먼트를 렌더링 할 엘리먼트
      */ 
-    ReactDOM.render(container, root) 
+    ReactDOM.render(Container, root) 
 
   </script>
 </body>
