@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<body>
+  
+  <div id="root">
+    <!-- 생성한 React 엘리먼트를 ReactDom을 통해 렌더링할 위치 -->
+  </div>
+
+  <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"> /* react */ </script>
+  <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js">/* react-dom */ </script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"> /* https://babeljs.io/docs/babel-standalone */ </script>
+  
+  <!-- JSX 구현 -->
+  <script type="text/babel">
+    const root = document.getElementById("root")
+
+    
+     const App = () => {
+
+      const [minutes, setMinutes] = React.useState()
+      const [hours, setHours] = React.useState()
+      const onChange = (event) => {
+        setMinutes(event.target.value)
+      }
+      return(
+        <div>
+          <h1>Super Convert</h1>
+          <label htmlFor="minutes">Minutes</label>
+          <input onChange={onChange} value={minutes} id="minutes" type="number" placeholder = "Minutes"/>
+          <h4>You want to converter {minutes}</h4>
+          <label htmlFor="hours">Hours</label>
+          <input value={hours} id="hours" type="number" placeholder = "Hours"/>
+        </div>
+      )
+    }
+    ReactDOM.render(<App/>, root) 
+  </script>
+</body>
+</html>
