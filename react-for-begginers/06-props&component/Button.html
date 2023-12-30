@@ -44,10 +44,15 @@
      * 이는 구조분해할당 문법의 원리와 같다.
      * text, data 2개의 props를 넘겼다면 ({title, data}) 로 직접 받아 사용이 가능하다.
      * 이때 props의 순서와는 전혀 상관 없이 이름과 일치하는 속성으로 1:1 매칭된다.
+     * 
+     * props에 함수 전달도 가능하다.
+     * 특정 이벤트에 의해 부모로 부터 넘겨받은 함수를 자식 컴포넌트에서 실행하여
+     * 부모 컴포넌트의 state 값을 조작할 수 있다.
      */
-    const CommonBtn = ({title, big}) => {
-      console.log(title, big)
-      return <button style={{
+    const CommonBtn = ({title, big, onClick}) => {
+      return <button 
+      onClick={onClick ? onClick: false}
+      style={{
         backgroundColor: "tomato",
         color: "white",
         padding: "10px 20px",
@@ -57,13 +62,15 @@
       }}>{title}</button>
     }
     const App = () => {
-     
+     const [value, setValue] = React.useState("PropsOfFunc")
+     const changeValue = () => setValue("Revert Changes")
       return(
         <div>
           <SaveBtn/>  
           <ConfirmBtn/>  
           <CommonBtn title="Cancel and Return"/>
           <CommonBtn title="Init All" big={true}/>
+          <CommonBtn title={value} onClick = {changeValue}/>
         </div>
       )
     }
