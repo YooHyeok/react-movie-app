@@ -17,6 +17,7 @@
      * JSX 를 반환하는 함수를 말한다. 
      */
     const SaveBtn = () => {
+      console.log("리렌더링됨")
       return <button style={{
         backgroundColor: "tomato",
         color: "white",
@@ -26,6 +27,7 @@
       }}>Save Change</button>
     }
     const ConfirmBtn = () => {
+      console.log("리렌더링됨")
       return <button style={{
         backgroundColor: "tomato",
         color: "white",
@@ -36,6 +38,8 @@
     }
     /**
      * 버튼 공통 컴포넌트
+     * 
+     * [props]
      * 컴포넌트 함수 매개변수를 통해 object형태의 props 데이터를 받을 수 있다. 
      * (props 매개변수 이름은 자유이며 컴포넌트는 단 1개의 매개변수로 props값만 받는다.)
      * 즉, JSX에서 특정 이름의 속성으로 데이터를 넣어주게 되면 {속성명: value}의 형태로 넘어오기 때문에 
@@ -45,13 +49,22 @@
      * text, data 2개의 props를 넘겼다면 ({title, data}) 로 직접 받아 사용이 가능하다.
      * 이때 props의 순서와는 전혀 상관 없이 이름과 일치하는 속성으로 1:1 매칭된다.
      * 
-     * props에 함수 전달도 가능하다.
+     * [props 함수 전달]
      * 특정 이벤트에 의해 부모로 부터 넘겨받은 함수를 자식 컴포넌트에서 실행하여
      * 부모 컴포넌트의 state 값을 조작할 수 있다.
+     * 
+     * [React memo]
+     * 위와 같이 props로 함수를 전달하여 부모 컴포넌트의 state를 변경하게 되면
+     * 부모 컴포넌트가 리렌더링 된다.
+     * 하지만 부모 컴포넌트에서 렌더링하는 모든 컴포넌트들이 함께 리렌더링된다.
+     * 이는 추후에 어플리케이션이 느려지는 원인이 될 수 있다.
+     * 이때, 부모 컴포넌트의 리렌더링을 발생시킨 state 즉, 변경된 state값을 props로 넘겨받는 컴포넌트만
+     * 부모 컴포넌트와 함께 리랜더링 되도록 해줄 수 있다.
      */
     const CommonBtn = ({title, big, onClick}) => {
+      console.log(title, "was rendered")
       return <button 
-      onClick={onClick ? onClick: false}
+      onClick={onClick}
       style={{
         backgroundColor: "tomato",
         color: "white",
@@ -61,16 +74,19 @@
         fontSize: big ? 18 : 16 // true면 18, false혹은 undefined이면 16
       }}>{title}</button>
     }
+    const  SaveMemoBtn = React.memo(SaveBtn)
+    const  CnfrmMemoBtn = React.memo(ConfirmBtn)
+    const CmnMemoBtn = React.memo(CommonBtn)
     const App = () => {
      const [value, setValue] = React.useState("PropsOfFunc")
      const changeValue = () => setValue("Revert Changes")
       return(
         <div>
-          <SaveBtn/>  
-          <ConfirmBtn/>  
-          <CommonBtn title="Cancel and Return"/>
-          <CommonBtn title="Init All" big={true}/>
-          <CommonBtn title={value} onClick = {changeValue}/>
+          <SaveMemoBtn/>  
+          <CnfrmMemoBtn/>  
+          <CmnMemoBtn title="Cancel and Return"/>
+          <CmnMemoBtn title="Init All" big={true}/>
+          <CmnMemoBtn title={value} onClick = {changeValue}/>
         </div>
       )
     }
