@@ -14,8 +14,7 @@
   <script type="text/babel">
     const root = document.getElementById("root")
 
-    
-     const App = () => {
+    const TimeConverter = () => {
 
       const [amount, setAmount] = React.useState(0)
       const [inverted, setInverted] = React.useState(false)
@@ -31,7 +30,7 @@
 
       return(
         <div>
-          <h1>Super Convert</h1>
+          <h3>Minutes 2 Hours</h3>
           <div>
             <label htmlFor="minutes">Minutes</label>
             <input onChange={onChange} value={inverted ? amount * 60 : amount} disabled={inverted} id="minutes" type="number" placeholder = "Minutes"/>
@@ -44,6 +43,33 @@
           </div>
           <button onClick={reset}>Reset</button>
           <button onClick={onInvert}>{inverted ? "Turn back" : "Invert"}</button>
+        </div>
+      )
+    }
+    const MilesConverter = () => {
+      return (
+        <div>
+          <h3>Km 2 Miles</h3>
+        </div>
+      )
+    }
+    const App = () => {
+      const [index, setIndex] = React.useState("-1");
+
+      const onSelect = (event) => {setIndex(event.target.value)}
+
+      return(
+        <div>
+          <h1>Super Convert</h1>
+          <select value={index} onChange={onSelect}>
+            <option value={"-1"}>변환 선택</option>  
+            <option value={"0"}>시간 변환</option>  
+            <option value={"1"}>거리 변환</option>  
+          </select>
+          <hr/>
+          {index === "-1" ? "Please Select Your Units!" : null}
+          {index === "0" ? <TimeConverter/> : null}
+          {index === "1" ?<MilesConverter/> : null}
         </div>
       )
     }
