@@ -34,12 +34,35 @@
         borderRadius: 10
       }}>ConfirmBtn</button>
     }
+    /**
+     * 버튼 공통 컴포넌트
+     * 컴포넌트 함수 매개변수를 통해 object형태의 props 데이터를 받을 수 있다. 
+     * (props 매개변수 이름은 자유이며 컴포넌트는 단 1개의 매개변수로 props값만 받는다.)
+     * 즉, JSX에서 특정 이름의 속성으로 데이터를 넣어주게 되면 {속성명: value}의 형태로 넘어오기 때문에 
+     * props.속성명 으로 접근한다.
+     * 만약 함수의 매개변수 형태를 직접적인 {object} 형태로 받는다면 JSX에서 지정한 속성이름으로 바로 받을 수 있다.
+     * 이는 구조분해할당 문법의 원리와 같다.
+     * text, data 2개의 props를 넘겼다면 ({title, data}) 로 직접 받아 사용이 가능하다.
+     * 이때 props의 순서와는 전혀 상관 없이 이름과 일치하는 속성으로 1:1 매칭된다.
+     */
+    const CommonBtn = (props) => {
+      console.log(props)
+
+      return <button style={{
+        backgroundColor: "tomato",
+        color: "white",
+        padding: "10px 20px",
+        border: 0,
+        borderRadius: 10
+      }}>{props.title}</button>
+    }
     const App = () => {
      
       return(
         <div>
           <SaveBtn/>  
           <ConfirmBtn/>  
+          <CommonBtn title="Cancel and Return"/>
         </div>
       )
     }
