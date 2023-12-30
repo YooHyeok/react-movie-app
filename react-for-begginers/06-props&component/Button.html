@@ -86,6 +86,17 @@
     const CnfrmMemoBtn = React.memo(ConfirmBtn)
     const CmnMemoBtn = React.memo(CommonBtn)
 
+    /**
+     * PropTypes 와 isRequired
+     * Props의 각기 다른 타입 검사 가능
+     * react.development일때만 사용가능
+     */
+     CmnMemoBtn.propTypes = {
+      title: PropTypes.string.isRequired, //타입 뒤의 isRequired는 undefined를 허용하지 않음 - 필수 props
+      big: PropTypes.bool,
+      onClick: PropTypes.func,
+    }
+    
     const App = () => {
      const [value, setValue] = React.useState("PropsOfFunc")
      const changeValue = () => setValue("Revert Changes")
