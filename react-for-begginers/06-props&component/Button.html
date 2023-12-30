@@ -8,7 +8,7 @@
 
   <script crossorigin src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"> /* react */ </script>
   <script crossorigin src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js">/* react-dom */ </script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"> /* https://babeljs.io/docs/babel-standalone */ </script>
+  <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"> /* https://babeljs.io/docs/babel-standalone */ </script>
   
   <!-- JSX 구현 -->
   <script type="text/babel">
@@ -61,7 +61,13 @@
      * 이때, 부모 컴포넌트의 리렌더링을 발생시킨 state 즉, 변경된 state값을 props로 넘겨받는 컴포넌트만
      * 부모 컴포넌트와 함께 리랜더링 되도록 해줄 수 있다.
      */
-    const CommonBtn = ({title, big, onClick}) => {
+    const CommonBtn = (
+      {
+        title, 
+        big = false, // undefined데이터에 대한 props 기본값
+        onClick
+      }
+    ) => {
       console.log(title, "was rendered")
       return <button 
       onClick={onClick}
@@ -71,12 +77,14 @@
         padding: "10px 20px",
         border: 0,
         borderRadius: 10,
-        fontSize: big ? 18 : 16 // true면 18, false혹은 undefined이면 16
+        fontSize: big ? 18 : 16 // true/false로 데이터 변경
       }}>{title}</button>
     }
+    
     const SaveMemoBtn = React.memo(SaveBtn)
     const CnfrmMemoBtn = React.memo(ConfirmBtn)
     const CmnMemoBtn = React.memo(CommonBtn)
+
     const App = () => {
      const [value, setValue] = React.useState("PropsOfFunc")
      const changeValue = () => setValue("Revert Changes")
