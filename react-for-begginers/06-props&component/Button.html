@@ -74,8 +74,8 @@
         fontSize: big ? 18 : 16 // true면 18, false혹은 undefined이면 16
       }}>{title}</button>
     }
-    const  SaveMemoBtn = React.memo(SaveBtn)
-    const  CnfrmMemoBtn = React.memo(ConfirmBtn)
+    const SaveMemoBtn = React.memo(SaveBtn)
+    const CnfrmMemoBtn = React.memo(ConfirmBtn)
     const CmnMemoBtn = React.memo(CommonBtn)
     const App = () => {
      const [value, setValue] = React.useState("PropsOfFunc")
