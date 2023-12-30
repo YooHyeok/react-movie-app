@@ -45,16 +45,16 @@
      * text, data 2개의 props를 넘겼다면 ({title, data}) 로 직접 받아 사용이 가능하다.
      * 이때 props의 순서와는 전혀 상관 없이 이름과 일치하는 속성으로 1:1 매칭된다.
      */
-    const CommonBtn = (props) => {
-      console.log(props)
-
+    const CommonBtn = ({title, big}) => {
+      console.log(title, big)
       return <button style={{
         backgroundColor: "tomato",
         color: "white",
         padding: "10px 20px",
         border: 0,
-        borderRadius: 10
-      }}>{props.title}</button>
+        borderRadius: 10,
+        fontSize: big ? 18 : 16 // true면 18, false혹은 undefined이면 16
+      }}>{title}</button>
     }
     const App = () => {
      
@@ -63,6 +63,7 @@
           <SaveBtn/>  
           <ConfirmBtn/>  
           <CommonBtn title="Cancel and Return"/>
+          <CommonBtn title="Init All" big={true}/>
         </div>
       )
     }
