@@ -1,10 +1,8 @@
 import PropTypes from "prop-types"; //npm i prop-types
+import styles from "./Button.module.css"; // cra가 ~.module.css 파일에 들어있는 css코드를 javascript object로 변환시켜준다.
 
 function Button({text}) {
-  return <button style={{
-    backgroundColor:"tomato",
-    color: "white"
-  }}>{text}</button>
+  return <button className={styles.btn}>{text}</button>
 }
 
 Button.propTypes = {
