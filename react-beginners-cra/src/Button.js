@@ -1,11 +1,16 @@
 import PropTypes from "prop-types"; //npm i prop-types
 import styles from "./Button.module.css"; // cra가 ~.module.css 파일에 들어있는 css코드를 javascript object로 변환시켜준다.
-import {useState} from "react"
+import {useState,useEffect} from "react"
 
 function Button({text}) {
+
   const [counter, setValue] = useState(0)
   const onClick=()=>setValue(prev=>prev+1)
-  console.log("call an api")
+  console.log("i run all the time!")
+  const iRunOnlyOnce = () => console.log("i run only once.")
+  // component가 처음 render할 때 실행되고, 다시는 실행되지 않을 function을 넣는다.
+
+  useEffect(iRunOnlyOnce, [])
   return (
   <div>
     <h1>{counter}</h1>
