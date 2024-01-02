@@ -4,19 +4,10 @@ import { useEffect, useState } from "react";
 
 function Hello() {
 
-  const byeFn = () => console.log("destroyed :(")
-
-  const hiFn = () => {
-    console.log("crated :)")
-
-    /**
-     * useEffect의 cleanUp
-     * 컴포넌트 destory시 실행된다.
-     */
-    return byeFn;
-  }
-
-  useEffect(hiFn, [])
+  useEffect(()=>{
+    console.log("hi! :)")
+    return () => console.log("bye~ :(") //useEffect의 cleanup함수 : Hello 컴포넌트 destroy시 실행됨
+  }, [])
   
   return <h1>Hello</h1>
 }
