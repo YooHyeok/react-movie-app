@@ -3,19 +3,21 @@ import styles from "./App.module.css"
 import { useEffect, useState } from "react";
 
 function Hello() {
-  useEffect(()=>{
 
+  const byeFn = () => console.log("destroyed :(")
+
+  const hiFn = () => {
     console.log("crated :)")
 
     /**
      * useEffect의 cleanUp
      * 컴포넌트 destory시 실행된다.
      */
-    return (()=>{
-      console.log("destroyed :(")
-    })
+    return byeFn;
+  }
 
-  }, [])
+  useEffect(hiFn, [])
+  
   return <h1>Hello</h1>
 }
 
