@@ -58,7 +58,7 @@ function App() {
       {showing && <Hello/>}
       <hr/>
 
-      <h1>To Do List {toDos.length}</h1>
+      <h1>To Do List {toDos?.length}</h1>
       <form onSubmit={onSubmit}>
         <input onChange={onChange} value={toDo} type="text" placeholder="Write your to do..."></input>
         <button>Add To Do</button>
@@ -69,10 +69,10 @@ function App() {
       </ul>
 
       <hr/>
-      <h1>Coin Tracker {loading ? "" : `(${coinInfo.length})`}</h1>
+      <h1>Coin Tracker {loading ? "" : `(${coinInfo?.length})`}</h1>
       {loading ? <strong>Loading...</strong> : 
       <select>{
-        coinInfo.map(item=><option key={item.id}>{item.name} ({item.symbol}) : ${item.quotes.USD.price} USD</option>)
+        coinInfo?.map(item=><option key={item.id}>{item.name} ({item.symbol}) : ${item.quotes.USD.price} USD</option>)
       }</select>
       }
     </div>
