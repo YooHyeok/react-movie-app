@@ -30,8 +30,22 @@ function App() {
     setToDos(currentArray => [toDo, ...currentArray]) // 전개식을 사용한다면 역순으로 추가할 수 있다.
     setToDo(current => current = "")
   }
-  console.log(toDos)
 
+  /* Coin Tracker */
+  const [loading, setLoading] = useState(true);
+  const [coinInfo, setCoinInfo] = useState([]);
+  // https://api.coinpaprika.com/v1/tickers
+  useEffect(()=>{
+    fetch("https://api.coinpaprika.com/v1/tickers")
+    .then(response => response.json())
+    .then((data)=>{
+      console.log(data)
+      setCoinInfo(data)
+      setLoading(false)
+    })
+    .catch(console.log)
+
+  }, [])
   return (
     <div>
       <h1>UseEffect Example</h1>
@@ -53,6 +67,10 @@ function App() {
       <ul>
         {toDos.map((todo,index)=> <li key={index}>{todo}</li>)}
       </ul>
+
+      <hr/>
+      <h1>Coin Tracker ({coinInfo.length})</h1>
+      {loading ? <strong>Loading...</strong> : coinInfo.map(item=><li key={item.id}>{item.name} ({item.symbol}) : ${item.quotes.USD.price} USD</li>)}
     </div>
   );
 }
