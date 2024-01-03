@@ -69,7 +69,7 @@ function App() {
       </ul>
 
       <hr/>
-      <h1>Coin Tracker ({coinInfo.length})</h1>
+      <h1>Coin Tracker {loading ? "" : `(${coinInfo.length})`}</h1>
       {loading ? <strong>Loading...</strong> : 
       <select>{
         coinInfo.map(item=><option key={item.id}>{item.name} ({item.symbol}) : ${item.quotes.USD.price} USD</option>)
