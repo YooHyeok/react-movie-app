@@ -1,24 +1,11 @@
-import CleanUp from "./component/CleanUp";
-import CoinTracker from "./component/CoinTracker";
-import ToDoList from "./component/ToDoList";
-import UseEffect from "./component/UseEffect";
+import ExamCombine from "./component/example/ExamCombine";
 
 function App() {
 
  
   return (
     <div>
-
-      <UseEffect/>
-      <hr/>
-
-      <CleanUp/>
-      <hr/>
-
-      <ToDoList/>
-      <hr/>
-
-      <CoinTracker/>
+      <ExamCombine/>
     </div>
   );
 }
