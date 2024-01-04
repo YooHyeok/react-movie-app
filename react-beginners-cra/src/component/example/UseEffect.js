@@ -1,5 +1,5 @@
 import Button from "../../Button"
-import styles from "../UseEffect.module.css"
+import styles from "../../UseEffect.module.css"
 
 export default function UseEffect() {
   return (
