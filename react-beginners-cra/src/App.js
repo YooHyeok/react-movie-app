@@ -16,15 +16,17 @@ function App() {
 
   const getMoviesAsync = async() => {
     try {
-      const response = await fetch("https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year")
-      const json = await response.json()
+    // const response = await fetch("https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year")
+    // const json = await response.json()
+    /* Short Cut */
+      const json = await((await fetch("https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year")).json())
       setMovies(json.data.movies)
       setLoading(false)
     } catch (error) {
       console.log(error)      
     }
   }
-  useEffect(async() => {
+  useEffect(() => {
     // getMoviesThen();
     getMoviesAsync();
   }, [])
