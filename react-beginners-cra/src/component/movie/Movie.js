@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 export default function Movie({mediumCoverImage, title, summary, genres}) {
 
     return (
@@ -10,4 +11,10 @@ export default function Movie({mediumCoverImage, title, summary, genres}) {
     );
 }
 
+Movie.prototype={
+  mediumCoverImage: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string).isRequired
+}
 
