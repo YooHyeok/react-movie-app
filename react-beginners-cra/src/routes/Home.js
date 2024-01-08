@@ -36,6 +36,7 @@ export default function Home() {
       <h1>Loading...</h1> :
       movies.map(movie=> <Movie 
         key={movie.id}
+        id={movie.id}
         mediumCoverImage={movie.medium_cover_image}
         title={movie.title}
         summary={movie.summary}
