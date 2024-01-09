@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from "./Movie.module.css";
-export default function Movie({id, mediumCoverImage, title, summary, genres}) {
+export default function Movie({id, year, mediumCoverImage, title, summary, genres}) {
     return (
       <div className={styles.movie}>
         <img src={mediumCoverImage} alt={title} className={styles.movie__img}/>
@@ -11,6 +11,7 @@ export default function Movie({id, mediumCoverImage, title, summary, genres}) {
               {title}
             </Link>
           </h2>
+          <h3 className={styles.movie__year}>{year}</h3>
         </div>
         <p>{summary}</p>
         <ul className={styles.movie__genres}>{genres.map((g, i) => <li key={i}>{g}</li>)}</ul>
