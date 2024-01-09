@@ -12,9 +12,11 @@ export default function Movie({id, year, mediumCoverImage, title, summary, genre
             </Link>
           </h2>
           <h3 className={styles.movie__year}>{year}</h3>
+          <p>{summary.length > 235 ? `${summary.slice(0, 235)}...` : summary}</p>
+          <ul className={styles.movie__genres}>
+            {genres.map((g, i) => <li key={i}>{g}</li>)}
+          </ul>
         </div>
-        <p>{summary}</p>
-        <ul className={styles.movie__genres}>{genres.map((g, i) => <li key={i}>{g}</li>)}</ul>
       </div>
     );
 }
