@@ -1,6 +1,6 @@
 {
-  "short_name": "Movie App",
-  "name": "React-Movie-App",
+  "short_name": "React Movie App",
+  "name": "React Movie App Example",
   "icons": [],
   "start_url": ".",
   "display": "standalone",
