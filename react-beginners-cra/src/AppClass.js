@@ -19,11 +19,26 @@ export default class AppClass extends Component{
    * 주로 동적인 데이터를 다룰 때 사용한다.
    */
   state = {
-    count:0
+    count:0,
+    a: 0
   }
 
   add = () => {
-    console.log("add")
+    /**
+     * state와 reRender
+     * 새로운 state를 받아야 reRender된다.
+     * 따라서 setState에는 새로운 state 그 자체 형태로 다시 반환해야한다.
+     * 이를테면 인자값은 state 그 자체의 값을 의미하므로
+     * 이전 객체 형태에 전개식 등을 사용하여 특정 속성의 데이터를 변경만 하고
+     * 객체를 유지하여 update처리한다
+     * 이로써 새로운 객체를 넣었으므로 reRender된다.
+     * 만약 값이 그대로인 객체를 전달하더라도 reRender된다.
+     */
+    this.setState({a:1});
+    // this.setState({count: this.state.count+1});
+    // this.setState({...this.state, count: this.state.count+1});
+    /* this.setState(curState => 
+      ({...curState, count: curState.count+1})); */
   }
   minus = () => {
     console.log("minus")
@@ -33,10 +48,12 @@ export default class AppClass extends Component{
    * Class형 컴포넌트에서 특정 컴포넌트나 HTML 등의 JSX를 렌더링 하기 위한 메소드
    */
   render() {
+    console.log("렌더링됨")
+    console.log(this.state)
     return (
       <div>
         <h1>
-          The number is: {this.state.count }
+          The number is: {this.state.count}
           {/* 클래스 이므로 this키워드로 접근 */}
         </h1>
         <button onClick={this.add}>Add</button>
