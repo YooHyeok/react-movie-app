@@ -105,7 +105,7 @@ export default class LifeCycle extends Component {
   render() {
     console.log("2. render 호출 - 컴포넌트 마운트됨 " + JSON.stringify(this.state))
     return <>
-    <p>LifeCycle컴포넌트 </p>
+    <p>LifeCycle 자식 컴포넌트 </p>
      <p>isUnmounted state: {this.state.isUnmounted ? 'true' : 'false'}</p>
      <p>{`count값: ${this.state.count}`}</p>
      </>

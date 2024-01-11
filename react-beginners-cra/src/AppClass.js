@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import LifeCycle from './component/classExam/LifeCycle';
+import LifeCycleParent from './component/classExam/LifeCycleParent';
 
 /**
  * React Component를 상속받아 App클래스를 확장함으로서
@@ -22,7 +22,6 @@ export default class AppClass extends Component{
   state = {
     count:0,
     a: 0,
-    isUnmounted: true
   }
 
   add = () => {
@@ -46,11 +45,6 @@ export default class AppClass extends Component{
   minus = () => {
     console.log("minus")
   }
-  unMount = () => {
-    this.setState(curState => ({isUnmounted: !curState.isUnmounted}));
-
-
-  }
 
   /**
    * Class형 컴포넌트에서 특정 컴포넌트나 HTML 등의 JSX를 렌더링 하기 위한 메소드
@@ -64,9 +58,8 @@ export default class AppClass extends Component{
         </h1>
         <button onClick={this.add}>Add</button>
         <button onClick={this.minus}>Minus</button>
-        <button onClick={this.unMount}>UnMount</button>
         <hr/>
-        {this.state.isUnmounted && <LifeCycle isUnmounted={this.state.isUnmounted}/>}
+        {<LifeCycleParent count={0}/>}
       </div>
     )
   }
