@@ -3,15 +3,22 @@ import {PropTypes} from "prop-types"
 
 export default class Movie extends Component{
 
-  constructor(props) {
+  /* constructor(props) {
     super(props)
-    console.log(props)
-  }
+  } */
 
   render() {
-
+    const {id, year, title, summary, poster} = this.props
     return (
-      <h4>{this.props.title}</h4>
+      <div className="movie">
+        <img className="movie__poster" src={poster} alt={title} title={title}/>
+        <div className="movie__data">
+          <h3 className="movie__title">{title}</h3>
+          <h5 className="movie__year">{year}</h5>
+          <p className="movie__summary">{summary}</p>
+        </div>
+
+      </div>
     );
   }
 }
