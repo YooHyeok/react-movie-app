@@ -1,5 +1,7 @@
 import {Component} from 'react';
+import axios from "axios"
 import ClassComponent from './component/classExam/ClassComponent';
+// https://yts-proxy.now.sh/list_movies.json
 
 /**
  * React Component를 상속받아 App클래스를 확장함으로서
@@ -8,12 +10,24 @@ import ClassComponent from './component/classExam/ClassComponent';
  */
 export default class AppClass extends Component{
   
-  state = {isLoading: true}
+  state = {
+    isLoading: true,
+    movies: []
+  }
+
+  getMovieFetch = async () => {
+    const fetchRes = await((await fetch("https://yts-proxy.now.sh/list_movies.json")).json())
+    console.log(fetchRes)
+  }
+
+  getMovieAxios = async () => {
+    const axiosRes = await axios.get("https://yts-proxy.now.sh/list_movies.json")
+    console.log(axiosRes)
+  }
 
   componentDidMount() {
-    setTimeout(()=>{
-      this.setState({isLoading:false})
-    },6000)
+    this.getMovieFetch();
+    this.getMovieAxios();
   }
 
   /**
