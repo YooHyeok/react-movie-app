@@ -1,7 +1,7 @@
 import ExamCombine from "./component/funcExam/ExamCombine";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
-import Home from "./routes/Home";
-import Detail from "./routes/Detail";
+import Home from "./function/routes/Home";
+import Detail from "./function/routes/Detail";
 function App() {
 
   return (

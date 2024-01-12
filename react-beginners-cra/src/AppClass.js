@@ -1,6 +1,6 @@
 import {Component} from 'react';
 import axios from "axios"
-import ClassComponent from './component/classExam/ClassComponent';
+import ClassComponent from './class/component/example/ClassComponent';
 // https://yts-proxy.now.sh/list_movies.json
 
 /**
@@ -16,18 +16,45 @@ export default class AppClass extends Component{
   }
 
   getMovieFetch = async () => {
-    const fetchRes = await((await fetch("https://yts-proxy.now.sh/list_movies.json")).json())
-    console.log(fetchRes)
+    const response = await((await fetch("https://yts-proxy.now.sh/list_movies.json")).json())
+    console.log(response.data.movies)
+    // this.setState({movies: response.data.movies})
+
   }
 
   getMovieAxios = async () => {
-    const axiosRes = await axios.get("https://yts-proxy.now.sh/list_movies.json")
-    console.log(axiosRes)
+    // const response = await axios.get("https://yts-proxy.now.sh/list_movies.json")
+  /**
+   * {data} 구조 분해 할당을 통해 data 객체를 가져온다.
+   * 이때, data라는 객체의 이름을 다른 이름으로 사용하기 위해서는
+   * {data: 지정할변수명} 으로 지정한다.
+   */
+  //  const {data: response} = await axios.get("https://yts-proxy.now.sh/list_movies.json")
+  //  console.log(response.data.movies)
+  //  const movies = response.data.movies
+  // this.setState({movies: response.data.movies, isLoading: false })
+  
+  /**
+   * 구조분해할당 문법으로 구조를 분해하여 저장
+   * 중첩된 객체로 부터 최종적인 movies라는 변수에 해당하는 값을 추출하는 구조
+   */
+  // const {data: {data: {movies}}} = await axios.get("https://yts-proxy.now.sh/list_movies.json")
+  const json = await axios.get("https://yts-proxy.now.sh/list_movies.json")
+  console.log(json)
+  /**
+   * ES6 단축속성명 문법
+   * object에 저장할 데이터가 담긴 외부 변수명과 object에 지정할 리터럴 속성명이 일치하면 속성명만 작성한다.
+   * 외부 변수 데이터를 리터럴에 간편하게 위임하는 느낌의 방식이다.
+   * {변수명 : 변수명} => {변수명}
+   */
+  // this.setState({movies, isLoading: false })
+
   }
 
   componentDidMount() {
     this.getMovieFetch();
     this.getMovieAxios();
+    console.log(this.state)
   }
 
   /**
@@ -37,7 +64,7 @@ export default class AppClass extends Component{
     const {isLoading} = this.state
     return (
       <div>
-         {/* <ClassComponent/> */}
+         <ClassComponent/>
           {isLoading ? "Loading" : "We Are Ready"}
       </div>
     )
