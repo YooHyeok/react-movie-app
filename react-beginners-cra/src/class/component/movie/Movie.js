@@ -25,6 +25,9 @@ export default class Movie extends Component{
     );
   }
 }
+Movie.defaultProps = {
+  genres: []
+}
 Movie.propTypes = {
   id: PropTypes.number.isRequired,
   year: PropTypes.number.isRequired,
