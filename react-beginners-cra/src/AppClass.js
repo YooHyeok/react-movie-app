@@ -2,6 +2,7 @@ import {Component} from 'react';
 import axios from "axios"
 import ClassComponent from './class/component/example/ClassComponent';
 import Movie from './class/component/movie/Movie';
+
 // https://yts-proxy.now.sh/list_movies.json
 
 /**
@@ -80,6 +81,7 @@ export default class AppClass extends Component{
                 title={movie.title} 
                 summary={movie.summary} 
                 poster={movie.medium_cover_image}
+                genres={movie.genres}
                 />
             )}
           </div>
