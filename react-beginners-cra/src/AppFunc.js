@@ -1,4 +1,4 @@
-import ExamCombine from "./component/funcExam/ExamCombine";
+import ExamCombine from "./function/component/example/ExamCombine";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import Home from "./function/routes/Home";
 import Detail from "./function/routes/Detail";
