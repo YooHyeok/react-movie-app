@@ -18,7 +18,7 @@ export default class Movie extends Component{
           <ul className='movie__genres'>
             {genres.map((g, i) => <li key={i}>{g}</li>)}
           </ul>
-          <p className="movie__summary">{summary}</p>
+          <p className="movie__summary">{summary.slice(0,100)}...</p>
         </div>
 
       </div>
