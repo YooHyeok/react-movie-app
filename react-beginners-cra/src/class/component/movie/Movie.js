@@ -1,6 +1,6 @@
 import {Component} from "react"
 import {PropTypes} from "prop-types"
-
+import "./Movie.css";
 export default class Movie extends Component{
 
   /* constructor(props) {

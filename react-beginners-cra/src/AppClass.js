@@ -2,6 +2,7 @@ import {Component} from 'react';
 import axios from "axios"
 import ClassComponent from './class/component/example/ClassComponent';
 import Movie from './class/component/movie/Movie';
+import "./App.css";
 
 // https://yts-proxy.now.sh/list_movies.json
 
