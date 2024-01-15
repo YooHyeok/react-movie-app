@@ -1,9 +1,10 @@
 import {Component} from 'react';
 import Wrapper from './class/routes/Wrapper';
 import About from './class/routes/About';
-import Home1 from "./function/routes/Home";
+import Home from "./class/routes/Home";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navigation from './Navigation';
+import Detail from './class/routes/Detail';
 
 // https://yts-proxy.now.sh/list_movies.json
 
@@ -19,8 +20,9 @@ export default class AppClass extends Component{
       <BrowserRouter>
         <Navigation/>
         <Routes>
-          <Route path={`/`} element={<Home1/>}/>
-          <Route path='/about/:id' element={<Wrapper element={<About/>}/>}/>
+          <Route path={`${process.env.PUBLIC_URL}/ver2`} element={<Home/>}/>
+          <Route path={`${process.env.PUBLIC_URL}/about`} element={<About/>}/>
+          <Route path={`${process.env.PUBLIC_URL}/detail/:id`} element={<Wrapper element={<Detail/>}/>}/>
         </Routes>
       </BrowserRouter>
     )
