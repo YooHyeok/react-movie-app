@@ -2,6 +2,12 @@ import { Component } from "react";
 
 export default class About extends Component {
 
+  constructor(props) {
+    super(props)
+    
+    this.state = {param:props.param}
+
+  }
   getMovieApi = async (id)=>{
     const json = await (
       await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
@@ -9,7 +15,7 @@ export default class About extends Component {
       console.log(json.data.movie)
   }
   componentDidMount() {
-    this.getMovieApi(this.props.id)
+    this.getMovieApi(this.state.param.id)
   }
 
   render() {
