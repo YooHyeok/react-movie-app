@@ -1,9 +1,9 @@
 import {Component} from 'react';
-import axios from "axios"
-import Home from './class/routes/Home';
 import Wrapper from './class/routes/Wrapper';
 import About from './class/routes/About';
+import Home1 from "./function/routes/Home";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navigation from './Navigation';
 
 // https://yts-proxy.now.sh/list_movies.json
 
@@ -17,8 +17,9 @@ export default class AppClass extends Component{
   render() {
     return (
       <BrowserRouter>
+        <Navigation/>
         <Routes>
-          <Route path={`/`} element={<Home/>}/>
+          <Route path={`/`} element={<Home1/>}/>
           <Route path='/about/:id' element={<Wrapper element={<About/>}/>}/>
         </Routes>
       </BrowserRouter>
