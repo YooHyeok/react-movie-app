@@ -4,8 +4,7 @@ export default class About extends Component {
 
   constructor(props) {
     super(props)
-    
-    this.state = {param:props.param}
+    this.state = {param:props.param, location: props.location}
 
   }
   getMovieApi = async (id)=>{
