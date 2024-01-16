@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Redirect from "./Redirect";
 
 export default class Detail extends Component {
   
@@ -19,8 +20,12 @@ export default class Detail extends Component {
   }
 
   render() {
+    if (this.state.location.state == null) {
+      return (<Redirect path={`${process.env.PUBLIC_URL}/ver2`}/>) // 클래스형 컴포넌트에서는 redirect를 컴포넌트를 통해 거쳐 실행시킨다...
+    }
+
     return (
-    <h1>Detail222</h1>
+    <h1>{this.state.location.state.title}</h1>
     )
 }
 }
