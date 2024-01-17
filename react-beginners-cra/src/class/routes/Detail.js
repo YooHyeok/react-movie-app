@@ -21,7 +21,7 @@ export default class Detail extends Component {
 
   render() {
     if (this.state.location.state == null) {
-      return (<Redirect path={`${process.env.PUBLIC_URL}/ver2`}/>) // 클래스형 컴포넌트에서는 redirect를 컴포넌트를 통해 거쳐 실행시킨다...
+      return (<Redirect path={`/ver2`}/>) // 클래스형 컴포넌트에서는 redirect를 컴포넌트를 통해 거쳐 실행시킨다...
     }
 
     return (

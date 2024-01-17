@@ -15,7 +15,7 @@ export default class Movie extends Component{
         <img className="movie__poster" src={poster} alt={title} title={title}/>
         <div className="movie__data">
           <h3 className="movie__title">
-            <Link to={`${process.env.PUBLIC_URL}/detail/${id}`}
+            <Link to={`/detail/${id}`}
             state={{
               year, title, summary, poster, genres
             }}>{title}</Link>

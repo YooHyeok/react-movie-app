@@ -20,14 +20,14 @@ export default class AppClass extends Component{
   
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Navigation/>
         <Routes>
-          <Route path={`${process.env.PUBLIC_URL}/about`} element={<About/>}/>
-          <Route path={`${process.env.PUBLIC_URL}/ver1`} element={<Home1/>}/>
-          <Route path={`${process.env.PUBLIC_URL}/movie/:id`} element={<Detail1/>}/>
-          <Route path={`${process.env.PUBLIC_URL}/ver2`} element={<Home2/>}/>
-          <Route path={`${process.env.PUBLIC_URL}/detail/:id`} element={<Wrapper element={<Detail2/>}/>}/>
+          <Route path={`/about`} element={<About/>}/>
+          <Route path={`/ver1`} element={<Home1/>}/>
+          <Route path={`/movie/:id`} element={<Detail1/>}/>
+          <Route path={`/ver2`} element={<Home2/>}/>
+          <Route path={`/detail/:id`} element={<Wrapper element={<Detail2/>}/>}/>
         </Routes>
       </BrowserRouter>
     )

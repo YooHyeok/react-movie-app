@@ -7,7 +7,7 @@ export default function Movie({id, year, mediumCoverImage, title, summary, genre
         <img src={mediumCoverImage} alt={title} className={styles.movie__img}/>
         <div>
           <h2 className={styles.movie__title}>
-            <Link to={`${process.env.PUBLIC_URL}/movie/${id}`}>
+            <Link to={`/movie/${id}`}>
               {title}
             </Link>
           </h2>
